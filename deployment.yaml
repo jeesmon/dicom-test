@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: dicom-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dicom-test
+  template:
+    metadata:
+      labels:
+        app: dicom-test
+    spec:
+      containers:
+        - name: dicom-test
+          image: quay.io/jeesmon/dicom-test
+          command:
+            - sleep
+            - infinity
